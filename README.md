@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Giphy API Activity
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Using a third party API is very similar to using routes on a server. The big difference is that you'll likely get back much more data than you're used to. In this activity, you will be using Axios on the server to make requests to the Giphy API.
 
-## Available Scripts
+For this project, the goal is to display a random image from Giphy along with a button that allows the user to see a new random image.
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
+1. Read through the [Giphy documentation](https://developers.giphy.com/) to determine which endpoints you need to complete this app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Register an account in order to get your `API Key`. This key is used for all of your requests to authenticate your app to Giphy.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Create a `.env` file and add your API key.
 
-### `npm test`
+    `GIPHY_API_KEY=YOUR_KEY_GOES_HERE`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Spin up your app:
 
-### `npm run build`
+    - `npm install`
+    - `npm run server`
+    - `npm run client`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Task List
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] Make a `GET` request to Giphy from the `/random` router on your **server**, send the response from Giphy back to the client
+- [ ] Make a `GET` request from your **client** to your `/random` route, save the response data in Redux
+- [ ] Display the random gif on the page. Spend some time looking through the response! Some of the properties returned look like image paths but aren't.
+- [ ] Add a button that allows the user to refresh the results by making another `GET` request to `/random`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Stretch Goals
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] Implement some of the optional request parameters available when making the Giphy API request (for example, rating)
+- [ ] Add some inputs for the user to set things like rating and limit. You'll need to get these to your server and incorporated into your Giphy request!
+- [ ] Style the page to make it look better
