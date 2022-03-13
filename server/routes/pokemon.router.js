@@ -4,15 +4,15 @@ const router = express.Router();
 require('dotenv').config();
 
 router.get('/', (req, res) => {
-    // Swap links for giphy/pokemon
-    // axios.get(`http://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_API_KEY}&rating=pg`)
+    console.log('in /pokemon get');
+    
     axios.get(`https://api.pokemontcg.io/v2/cards?X-Api-Key=${process.env.POKEMON_API_KEY}&q=name:charizard&page=1&pageSize=50&orderBy=set.releaseDate`)
     
         .then(response => {
-            console.log('in /random .get');
+            console.log('in /pokemon get .then');
             res.send(response.data)
         }).catch(err => {
-            console.log('error!', err);
+            console.log('in /pokemon get .catch', err);
             res.sendStatus(500);
         })
 })
