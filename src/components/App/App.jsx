@@ -28,12 +28,12 @@ function App() {
     axios.get('/pokemon/api/sets')
       .then(response => {
         console.log('in getSets');
-        dispatch({ type: 'SET_SETS', payload: response.data.data})
-      }).catch( err => {
+        dispatch({ type: 'SET_SETS', payload: response.data.data })
+      }).catch(err => {
         console.log('getSets ERROR:', err);
       })
   }
-  
+
   useEffect(() => {
     getSets()
   }, [])
@@ -51,7 +51,16 @@ function App() {
 
       <div className='card-list'>
         {cardList.map(card => (
-          <img key={card.id} src={card.images.small} className="card"/>
+          <div key={card.id} className="card">
+            <img src={card.images.small}  />
+            <br />
+            <ul>
+              <li><b>Name:</b> {card.name}</li>
+              <li><b>Non-Holo:</b> ${card.tcgplayer.prices.normal?.market}</li>
+              <li><b>Holo:</b> ${card.tcgplayer.prices.holofoil?.market}</li>
+              <li><b>Unlimited:</b> ${card.tcgplayer.prices.unlimited?.market}</li>
+            </ul>
+          </div>
         ))}
       </div>
     </div>

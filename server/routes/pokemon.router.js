@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
     console.log('req.body.set', req.body.set);
     
     
-    axios.get(`https://api.pokemontcg.io/v2/cards?X-Api-Key=${process.env.POKEMON_API_KEY}&q=name:*${searchQuery}* set.id:${setId}&page=1&pageSize=255&orderBy=set.releaseDate`)
+    axios.get(`https://api.pokemontcg.io/v2/cards?X-Api-Key=${process.env.POKEMON_API_KEY}&q=name:*${searchQuery}* set.id:${setId}&page=1&pageSize=20&orderBy=set.releaseDate`)
     
         .then(response => {
             console.log('in /pokemon/api .get');

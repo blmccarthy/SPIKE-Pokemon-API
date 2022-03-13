@@ -26,11 +26,25 @@
   text-align: center;
 }
 
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   margin: 5px;
   padding: 5px;
+  max-width: 250px;
+}
+
+.card li {
+  text-align: left;
 }
 
 .search-form {
+  margin: 10px;
+}
+
+input, button {
   margin: 10px;
 }
