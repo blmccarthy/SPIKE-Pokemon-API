@@ -52,13 +52,30 @@ function App() {
       <div className='card-list'>
         {cardList.map(card => (
           <div key={card.id} className="card">
-            <img src={card.images.small}  />
+            <img src={card.images.small} />
             <br />
             <ul>
               <li><b>Name:</b> {card.name}</li>
-              <li><b>Non-Holo:</b> ${card.tcgplayer.prices.normal?.market}</li>
-              <li><b>Holo:</b> ${card.tcgplayer.prices.holofoil?.market}</li>
-              <li><b>Unlimited:</b> ${card.tcgplayer.prices.unlimited?.market}</li>
+              <li><b>Set:</b> {card.set.name}</li>
+
+              {/* =========== Conditional Rendering ============== */}
+
+              {card.tcgplayer.prices.normal ?
+                <li><b>Non-Holo:</b> ${card.tcgplayer.prices.normal?.market}</li>
+                : <></>
+              }
+              {card.tcgplayer.prices.holofoil ?
+                <li><b>Holo:</b> ${card.tcgplayer.prices.holofoil?.market}</li>
+                : <></>
+              }
+              {card.tcgplayer.prices.unlimitedHolofoil ?
+                <li><b>Holo:</b> ${card.tcgplayer.prices.unlimitedHolofoil?.market}</li>
+                : <></>
+              }
+              {card.tcgplayer.prices.unlimited ?
+                <li><b>Unlimited:</b> ${card.tcgplayer.prices.unlimited?.market}</li>
+                : <></>
+              }
             </ul>
           </div>
         ))}
